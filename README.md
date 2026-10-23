@@ -14,7 +14,7 @@ Windows 和 MacBook 共用的 Claude Code 個人設定。
 
 - `language`：回答語言固定為繁體中文。
 - `remoteControlAtStartup`：每個新 session 自動連 Remote Control，iPhone 隨時看得到。
-- `permissions.deny`：擋 Claude 讀 `~/.ssh`、`~/.aws`、`~/.gnupg`、`gh` 的 token、專案裡的 `.env`（`.env.example` 除外）和 `secrets/`。這只擋檔案工具和直接點名檔案的指令，擋不住所有繞法。
+- `permissions.deny`：擋 Claude 讀 `~/.ssh`、`~/.aws`、`~/.gnupg`、`gh` 的 token、專案裡的 `.env`、`.env.*`（包括 `.env.example`）和 `secrets/`。這只擋檔案工具和直接點名檔案的指令，擋不住所有繞法。
 - `permissions.ask`：`git push` 一律先問。
 - `enabledPlugins`：官方 marketplace 的 `context7`、`claude-md-management`、`security-guidance`、`superpowers`。
 
