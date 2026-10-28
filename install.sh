@@ -32,6 +32,18 @@ else
   echo "~/.claude/skills 已存在而且不是連結，沒動它。請先把裡面的 skill 搬進 repo/skills 再刪掉它，然後重跑。"
 fi
 
+# huashu-motion：skill 要用到上游 repo 裡的 cli/，所以 clone 整個 repo，再把 skill 資料夾 symlink 進 repo/skills
+hm="$HOME/Documents/huashu-motion"
+if [[ ! -e "$hm" ]]; then
+  git clone https://github.com/alchaincyf/huashu-motion.git "$hm"
+fi
+if [[ ! -e "$repo/skills/huashu-motion" ]]; then
+  ln -s "$hm/skills/huashu-motion" "$repo/skills/huashu-motion"
+  echo "skills/huashu-motion -> $hm"
+else
+  echo "huashu-motion 已經接好了（更新：git -C $hm pull --ff-only）"
+fi
+
 # settings.json：跟 Windows 一樣用合併的方式，兩台行為一致
 if ! command -v node >/dev/null; then
   echo "找不到 node，跳過 settings.json 和外掛。裝好 Node.js（brew install node）後重跑。"
