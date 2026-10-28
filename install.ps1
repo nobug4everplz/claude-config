@@ -36,6 +36,19 @@ if (-not (Test-Path $skills)) {
     Write-Host "~/.claude/skills 已存在而且不是連結，沒動它。請先把裡面的 skill 搬進 repo/skills 再刪掉它，然後重跑。"
 }
 
+# huashu-motion：skill 要用到上游 repo 裡的 cli/，所以 clone 整個 repo，再把 skill 資料夾用 junction 接進 repo/skills
+$hm = Join-Path $env:USERPROFILE 'Documents\huashu-motion'
+if (-not (Test-Path $hm)) {
+    git clone https://github.com/alchaincyf/huashu-motion.git $hm
+}
+$hmLink = Join-Path $repoSkills 'huashu-motion'
+if (-not (Test-Path $hmLink)) {
+    New-Item -ItemType Junction -Path $hmLink -Target (Join-Path $hm 'skills\huashu-motion') | Out-Null
+    Write-Host "skills/huashu-motion -> $hm"
+} else {
+    Write-Host "huashu-motion 已經接好了（更新：git -C $hm pull --ff-only）"
+}
+
 # settings.json：Windows 沒有系統管理員權限不能建 symlink，所以用合併的方式寫進去
 if (-not (Get-Command node -EA SilentlyContinue)) {
     Write-Host "找不到 node，跳過 settings.json 和外掛。裝好 Node.js 後重跑。"

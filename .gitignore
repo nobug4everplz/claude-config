@@ -1,0 +1,5 @@
+# Claude 桌面 app 自動同步的 skills，不屬於個人設定
+skills/synced/
+
+# 第三方 skill：安裝腳本 clone 上游後連結進來，不放進 repo
+skills/huashu-motion

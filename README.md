@@ -39,6 +39,7 @@ Windows 和 MacBook 共用的 Claude Code 個人設定。
 | :- | :- |
 | `untrusted-ai-pipeline` | 自己寫的：讓 AI 讀不可信內容、或把 Claude 放進 CI 時的檢查清單 |
 | `agent-reach` | `agent-reach` setup 產生，上游 Panniantong/Agent-Reach；要更新就重跑 setup，不要手改 |
+| `huashu-motion` | 用程式碼做動畫、宣傳片、科普影片，上游 alchaincyf/huashu-motion。不放進 repo：安裝腳本會 clone 到 `~/Documents/huashu-motion` 再連結進 `skills/`；更新用 `git -C ~/Documents/huashu-motion pull --ff-only`。需要 Node 22+、FFmpeg、Chrome/Edge |
 
 ## 安裝
 
