@@ -18,10 +18,22 @@
       "PowerShell(git push *)"
     ]
   },
+  "extraKnownMarketplaces": {
+    "thedotmack": { "source": { "source": "github", "repo": "thedotmack/claude-mem" } },
+    "understand-anything": { "source": { "source": "github", "repo": "Egonex-AI/Understand-Anything" } },
+    "last30days-skill": { "source": { "source": "github", "repo": "mvanhorn/last30days-skill" } },
+    "humanizer": { "source": { "source": "github", "repo": "blader/humanizer" } },
+    "ppt-master": { "source": { "source": "github", "repo": "hugohe3/ppt-master" } }
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "claude-mem@thedotmack": true,
+    "understand-anything@understand-anything": true,
+    "last30days@last30days-skill": true,
+    "humanizer@humanizer": true,
+    "ppt-master@ppt-master": true
   }
 }
