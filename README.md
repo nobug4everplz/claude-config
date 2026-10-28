@@ -16,7 +16,29 @@ Windows 和 MacBook 共用的 Claude Code 個人設定。
 - `remoteControlAtStartup`：每個新 session 自動連 Remote Control，iPhone 隨時看得到。
 - `permissions.deny`：擋 Claude 讀 `~/.ssh`、`~/.aws`、`~/.gnupg`、`gh` 的 token、專案裡的 `.env`、`.env.*`（包括 `.env.example`）和 `secrets/`。這只擋檔案工具和直接點名檔案的指令，擋不住所有繞法。
 - `permissions.ask`：`git push` 一律先問。
-- `enabledPlugins`：官方 marketplace 的 `context7`、`claude-md-management`、`security-guidance`、`superpowers`。
+- `extraKnownMarketplaces`：第三方外掛的來源 repo。
+- `enabledPlugins`：
+
+| 外掛 | 來源 | 用途 |
+| :- | :- | :- |
+| `context7` | 官方 | 查函式庫的最新文件 |
+| `claude-md-management` | 官方 | 檢查、更新 CLAUDE.md |
+| `security-guidance` | 官方 | 改程式時提醒安全問題 |
+| `superpowers` | 官方 | 腦力激盪、計畫、TDD、除錯等工作流程 |
+| `claude-mem` | thedotmack/claude-mem | 跨 session 的記憶 |
+| `understand-anything` | Egonex-AI/Understand-Anything | 把 codebase 畫成知識圖譜 |
+| `last30days` | mvanhorn/last30days-skill | 查某個主題近 30 天的討論 |
+| `humanizer` | blader/humanizer | 改掉文字裡的 AI 腔 |
+| `ppt-master` | hugohe3/ppt-master | 產生、改造 PPTX |
+
+從這裡拿掉的外掛不會自動從 `~/.claude/settings.json` 刪掉（見上方合併規則），兩台都要手動刪。
+
+## skills
+
+| skill | 說明 |
+| :- | :- |
+| `untrusted-ai-pipeline` | 自己寫的：讓 AI 讀不可信內容、或把 Claude 放進 CI 時的檢查清單 |
+| `agent-reach` | `agent-reach` setup 產生，上游 Panniantong/Agent-Reach；要更新就重跑 setup，不要手改 |
 
 ## 安裝
 
